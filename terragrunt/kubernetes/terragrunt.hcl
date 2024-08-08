@@ -15,7 +15,7 @@ dependencies {
 }
 
 dependency "networking" {
-  config_path = "../networking"
+  config_path = "../networking/kubernetes_network"
 
   mock_outputs = {
     subnets = {

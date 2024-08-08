@@ -15,13 +15,13 @@ dependencies {
 }
 
 dependency "networking" {
-  config_path = "../../networking"
+  config_path = "../../networking/kubernetes_network"
 
   mock_outputs = {
     subnets = {
       db-subnet = {
         name = "db-subnet"
-        id = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnet"
+        id   = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.Network/virtualNetworks/virtualNetworksValue/subnets/subnet"
       }
     }
   }
@@ -38,22 +38,22 @@ dependency "dns" {
 inputs = {
   # RG
   resource_group_name = local.common_vars.locals.resource_group_name
-  location = local.common_vars.locals.location
+  location            = local.common_vars.locals.location
 
   # Server
-  postgres_server_name = "group1-postgres"
-  postgres_version = "13"
-  delegated_subnet_id = dependency.networking.outputs.subnets["db-subnet"].id
-  private_dns_zone_id = dependency.dns.outputs.id
+  postgres_server_name  = "parkanizer-server"
+  postgres_version      = "13"
+  delegated_subnet_id   = dependency.networking.outputs.subnets["db-subnet"].id
+  private_dns_zone_id   = dependency.dns.outputs.id
   public_network_access = false
-  admin_login = "postgreDBAdmin"
-  admin_password = "P@ssw0rd"
-  sku_name = "B_Standard_B1ms"
-  storage_mb = 32768
+  admin_login           = "postgreDBAdmin"
+  admin_password        = "P@ssw0rd"
+  sku_name              = "B_Standard_B1ms"
+  storage_mb            = 32768
   backup_retention_days = 7
-  geo_redundant_backup = false
-  auto_grow = false
-  zone = 1
+  geo_redundant_backup  = false
+  auto_grow             = false
+  zone                  = 1
 
   # Database
   database_name = "parkanizer"

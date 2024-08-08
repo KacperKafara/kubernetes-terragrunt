@@ -1,9 +1,9 @@
 terraform {
-  source = "../../modules/networking"
+  source = "../../../modules/networking/network"
 }
 
 include {
-  path = "../terragrunt.hcl"
+  path = "../../terragrunt.hcl"
 }
 
 locals {
@@ -11,7 +11,7 @@ locals {
 }
 
 dependencies {
-  paths = ["../rg"]
+  paths = ["../../rg"]
 }
 
 inputs = {
