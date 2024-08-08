@@ -1,0 +1,5 @@
+terragrunt/kubernetes/.terragrunt-cache
+terragrunt/database/database/.terragrunt-cache
+terragrunt/database/dns/.terragrunt-cache
+terragrunt/networking/.terragrunt-cache
+terragrunt/rg/.terragrunt-cache
